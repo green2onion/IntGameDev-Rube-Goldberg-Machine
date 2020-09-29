@@ -7,9 +7,13 @@ public class CameraControl : MonoBehaviour
     public GameObject toFollow;
     public float speed;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        foreach (Camera c in FindObjectsOfType<Camera>())
+        {
+            c.enabled = false;
+        }
+        gameObject.GetComponent<Camera>().enabled = true;
     }
 
     // Update is called once per frame
